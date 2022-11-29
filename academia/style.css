@@ -1,4 +1,5 @@
 .imagens img{
+    margin-top: 5%;
     width:100%;
     height:300px;
 }
@@ -32,4 +33,11 @@
 .tela img{
     width:auto;
     height:600px;
+}
+.img-fuid{
+    width: 150px;
+    height: 150px;
+}
+.container-fluid{
+    margin-top: 5%;
 }
