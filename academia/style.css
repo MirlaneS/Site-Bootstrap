@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun&display=swap');
 .imagens img{
     margin-top: 5%;
     width:100%;
@@ -40,4 +41,21 @@
 }
 .container-fluid{
     margin-top: 5%;
+}
+
+.container-fluid h1{
+    font-family: 'Reem Kufi Fun', sans-serif;
+}
+.card{
+    margin: 15px;
+    border-color: rgb(15, 15, 68);
+    
+}
+
+.card-text{
+    color: rgb(22, 11, 167);
+}
+
+.h3{
+    color: blueviolet;
 }
