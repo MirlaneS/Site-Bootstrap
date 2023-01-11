@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+.container-fluid{
+    background-image: url("imagens/fundo-login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container-fluid h1{
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    font-family: 'Satisfy', cursive;
+    font-size: 70px;
+}
+
+.imagens img{
+    width: 100%;
+    height: 300px;
+}
+
+.capa-site{
+    width: 110vw;
+    height: 40vh;
+    margin: 0 auto;
+    background-color: rgb(224, 236, 236);
+}
+
+
+.dropdown-item:hover{
+    border-left: 4px solid blueviolet;
+    color: blueviolet;
+    transition: 0.3s;
+}
+
+.nav-item{
+    color: red;
+}
+
+.conteudo{
+    padding: 20px
+}
+
+.conteudo img{
+   width:100% ;
+   height: 300px;
+}
+
+.conteudo h3{
+    color: azure;
+}
+
+.conteudo p{
+    color: azure;
+    font-size: 20px;
+}
+.img-fluid{
+    border-radius: 50px;
+}
+
+.texto{
+    padding: 20px;
+    
+}
+
+
+.tela img{
+    width: auto;
+    margin-top: -800px;
+    display: flex;
+    
+}
+
+.img-roupa{
+    width: 550px;
+    height: 550px;
+    display: flex;
+    padding: 50px;
+}
+
+.img-roupa h3{
+    color: rgb(134, 132, 165);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
+
+.spin-text{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: 200;
+    text-align: justify;
+    
+}
+
+.spinning h3{
+    margin-bottom: 25px;
+}
+
+.spinning h5{
+    color: aliceblue;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.img-spin{
+    margin-bottom: 100px;
+    border-radius: 50px;
+    border-color: rgb(105, 62, 198);
+}
+
+.card{
+    width: 18rem;
+    height: 24rem;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-color: rgba(44, 42, 42, 0.75);
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.card img{
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+}
+
+.card:hover, card-focus {
+    background: rgba(182, 177, 236, 0.633);
+}
+
+.card-text{
+    font-size: 25px;
+}
+
+.card-body h3{
+    font-size: 20px
+}
+
+.modal-body{
+    background: rgba(196, 204, 211, 0.692);
+}
+
+.modal-body> p{
+    border-top: 1px dotted rgb(3, 3, 3);
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.login-text{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-label{
+    color: azure;
+}
+
+.form-check-label{
+    color: azure;
+}
+
+/****** Formulário Aluno*******/
+
+.form-aluno{
+    margin-top: 5%;
+}
+
+.end-form{
+    color: red;
+}
+
+.genero{
+    margin-left: 4px;
+}
+
+.form-radio{
+    color: red;
+    display: block;
+}
+
+.btn-primary{
+    margin-bottom: 25px;
+}
+
+/**** RODAPÉ *****/
+.footer{
+    background: rgb(205, 203, 209);
+    border-top: 1px dotted rgb(3, 3, 3);
+    
+}
+
+.footer> h4{
+    color: rgb(14, 13, 13);
+    margin-top: 25px;
+    
+}
+
+.footer p{
+    margin-top: 20px;
+    font-size: 20px;
+    color: rgb(100, 75, 46);
+}
+
+
+.footer ul a{
+    color: rgb(100, 75, 46);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.footer ul a:hover{
+    padding-left: 30px;
+    border-left: 4px solid rgb(169, 103, 230);
+    color: rgb(124, 97, 148);
+    transition: .4s;
+    
+}
+
+.footer li a{
+    margin-top: 10px;
+}
+
+.sociais {
+    font-size: 40px;
+    padding: 25px;
+    border-top: 2px dotted rgb(0, 0, 0);
+    background: rgb(205, 203, 209);
+    border-bottom: 50px;
+}
+
+.sociais a{
+    display: inline-flex;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    background: blueviolet;
+    color: white;
+    margin: 0 6px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    font-size: 25px;
+}
+
+.sociais a:hover {
+    background: #6b3b7a;
+}
+
+.sociais a i {
+    transition: 0.4s all;
+}
+
+.sociais a:hover > i {
+    transform: scale(1.5) rotate(15deg);
+}
+
+.mapa{
+    background: rgb(205, 203, 209);
+    border-top: 1px dotted rgb(13, 13, 13);
+}
+
+.mapa h4{
+    color: rgb(0, 0, 0);
+    margin-top: 25px;
+}
+
+.mapa iframe{
+    width: auto;
+    height: 200px;
+}
