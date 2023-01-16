@@ -1,117 +1,75 @@
 <?php
-require_once 'head.php';
-INCLUDE_once 'conexao.php';
+        include_once 'conexao.php';
+
+        session_start();
+	    ob_start();
 ?>
 
 <?php
+
+//echo "senha".password_hash(123, PASSWORD_DEFAULT);
+
 $dadoslogin = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-if (!empty($dadoslogin["btnlogin"])){
-  $buscalogin = "SELECT matricula, nome, email, senha
-                 FROM aluno
-                 where email =:usuario
-                 LIMIT 1";
 
-$resultado = $conn->prepare($buscalogin);
-$resultado->bindParam(':usuario', $dadoslogin['usuario'],
-PDO::PARAM_STR);
-$resultado->execute();
+if (!empty($dadoslogin['btnlogin'])) {
 
-if(($resultado) AND ($resultado->rowCount() !=0)){
-  $resposta = $resultado->fetch(PDO::FETCH_ASSOC);
-  var_dump($resposta);
-   
-if(password_verify($dadoslogin['senha'], $resposta 
-['senha'])){
-  header("location:administrativo.php");
+        $buscalogin = "SELECT matricula, nome, email,senha
+                                FROM aluno 
+                                WHERE email =:usuario  
+                                LIMIT 1";
 
-else{
-  echo"Usuario ou Senha Invalida!";
-}  
-Else{
-  echo"Usuario ou Senha Invalida!";
-}  
+        $resultado= $conn->prepare($buscalogin);
+        $resultado->bindParam(':usuario', $dadoslogin['usuario'], PDO::PARAM_STR);
+        $resultado->execute();
+
+        if(($resultado) AND ($resultado->rowCount() != 0)){
+            $resposta = $resultado->fetch(PDO::FETCH_ASSOC);
+            //var_dump($resposta);
+            //var_dump($dadoslogin);
+
+            if(password_verify($dadoslogin['senha'], $resposta['senha'])){
+                
+                $_SESSION['nome'] = $resposta['nome'];
+                header("Location: administrativo.php");
+
+            }
+            else{
+                $_SESSION['msg'] = "Erro: Usuário ou senha inválida!";
+          
+            }
+
+        }
+        else{
+            $_SESSION['msg'] = "Erro: Usuário ou senha inválida!";
+        
+        }
 }
+
+
+if(isset($_SESSION['msg'])){
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
 }
-}
+
 ?>
      
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12 text-center longin-text">
-      <h1> Faça Login </h1> 
-    </div>
-  </div>
-     
-<div class="container">
-  <div class="row">
-    <div class="col-md-4"> </div>
-  <div class="col-md-4">
- 
-      
-<form id="login-form" class="form" action="" method="post"> 
-
-  <!-- Email input -->
-  <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example1">Nome do Usuario</label>
-    <input type="email"  name="usuario" id="form2Example1" class="form-control"/>
-   
-  </div>
-
-  <!-- Password input -->
-  <div class="form-outline mb-4">
-  <label class="form-label" for="form2Example2">Senha</label>
-    <input type="password" name="senha" id="form2Example2" class="form-control"/>
-    
-  </div>
-
-  <!-- 2 column grid layout for inline styling -->
-  <div class="row mb-4">
-    <div class="col d-flex justify-content-center">
-      <!-- Checkbox -->
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label class="form-check-label" for="form2Example31"> Lembrar-me </label>
-      </div>
-    </div>
-
-    <div class="col">
-      <!-- Simple link -->
-      <a href="#!">Esqueceu a senha?</a>
-    </div>
-  </div>
-
-  <!-- Submit button -->
-  <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-  <!-- Register buttons -->
-  <div class="text-center">
-    <p>Não e Membro? <a href="#!">Registrar</a></p>
-    
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-facebook-f"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-google"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-twitter"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-github"></i>
-    </button>
-  </div>
-</form>
-
-</div>
-<div class="col-md-4"> </div>
-
-</div>
-</div>
-
-
+		 <form id="login-form" class="form" action="" method="POST">
+                            
+                            <div class="form-group">
+                                <label for="username" class="text-info">Nome de Usuário:</label><br>
+                                <input type="text" name="usuario" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Senha:</label><br>
+                                <input type="password" name="senha" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                               
+                                <input type="submit"  class="btn btn-info btn-md" value="Enviar" name="btnlogin">
+                                <input type="submit" name="cadastro" class="btn btn-info btn-md" value="Cadastre-se">
+                            </div>
+                            
+                        </form>
  <!-- 
 
 

@@ -2,7 +2,7 @@
     require_once 'head.php';
 ?>
 
-<form>
+<form method="post" action="controlealuno.php">
     <div class="container">
         <div class="row">
                 <div class="col-md-12 text-center">
@@ -16,66 +16,49 @@
                     <label for="nome">Nome</label>
                     <input type="text" class="form-control" name="nome">    
                 </div>
-            </div>           
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" class="form-control" onkeypress="$(this).mask('(00)00000-0000')">
-                </div>
-            </div>
+            </div>      
 
             <div class="col-md-3">
               <div class="form-group">
-                 <label for="sexo">Sexo</label>
-                 <p><input type="radio" name="optradio" checked> Feminino           
-                  <input type="radio" name="optradio"> Masculino
+                 <label for="sexo">genero</label>
+                 <p><input type="radio" name="sexo" checked value="F"> Feminino           
+                  <input type="radio" name="sexo"> Masculino
                 </div>
-            </div>
+            </div>     
 
             <div class="col-md-2">        
               <div class="form-group">            
                   <label for="dn">Data de Nascimento</label>
-                  <input type="date" class="form-control">
+                  <input type="date" class="form-control" name="dn">
               </div>
            </div>
         </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" onkeypress="$(this).mask('(00)00000-0000')">
+                </div>
+            </div>
         
         <div class="row">
            
             <div class="col-md-3">        
                 <div class="form-group">            
                     <label for="cpf">Cpf</label>
-                    <input type="text" class="form-control" onkeypress="$(this).mask('000.000.000-00');">
+                    <input type="text" class="form-control"  name="cpf" onkeypress="$(this).mask('000.000.000-00');">
                 </div>
             </div>
 
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="rg">RG</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="rg">
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Endereço de email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">                   
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="row">
+            <div class="row">
             
-            <div class="col-md-2">            
-                <div class="form-group">
-                    <label for="cep">Cep</label>
-                    <input type="text" name="cep" class="form-control" id="cep">                    
-                </div>
-            </div>
-
             <div class="col-md-6">            
                 <div class="form-group">
                     <label for="endereco">Endereço</label>
@@ -83,17 +66,25 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-2">            
+                <div class="form-group">
+                    <label for="cep">Cep</label>
+                    <input type="text" name="cep" class="form-control" id="cep">                    
+                </div>
+            </div>
+
+               <div class="col-md-2">
                 <div class="form-group">
                     <label for="numero">Número</label>
-                    <input type="text" class="form-control">    
+                    <input type="text" class="form-control" name="numero">    
                 </div>
             </div> 
+
             
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="complemento">
                 </div>
             </div>
         </div>
@@ -121,10 +112,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Endereço de email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Seu email">                   
+                </div>
+            </div>
+           </div>
+           
+           
         
         <div class="row">    
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary" value"Enviar" name="btncad">Enviar</button>
                
             </div>
         </div>
