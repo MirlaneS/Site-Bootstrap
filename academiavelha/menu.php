@@ -49,6 +49,10 @@
               <a class="nav-link" href="funcionario.php">Funcionario</a>
           </li>
 
+           <li class="nav-item">
+              <a class="nav-link" href="admin.php">administrativo</a>
+          </li>
+
         
           </ul>
 

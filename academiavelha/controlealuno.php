@@ -1,41 +1,88 @@
 <?php
-        include_once 'conexao.php';
-        try{
-            $dadoscad = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    include_once 'conexao.php';
+
+try{
+
+    $dadoscad = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+    var_dump($dadoscad);
+
+    if (!empty($dadoscad['btncad'])) {
+
+        $vazio = false;
+
+        $dadoscad = array_map('trim', $dadoscad);
+        if (in_array("", $dadoscad)) {
+            $vazio = true;
            
-            var_dump($dadoscad);
+            echo "<script>
+        alert('Preencher todos os campos!!!');
+        parent.location = 'frmaluno.php';
+        </script>";
 
-       //echo "senha".password_hash(123, PASSWORD_DEFAULT);
+        } else if(!filter_var($dadoscad['email'], FILTER_VALIDATE_EMAIL)) {
+            $vazio = true;
 
-       if (!empty($dadoscad['btncad'])) {
+            echo "<script>
+            alert('Informe um e-mail válido!!');
+            parent.location = 'frmaluno.php';
+            </script>";
+            
+            
+        }
+    
 
- $sql="inset into aluno(name,sexo,datanascimento,telefone,cpf,rg,cep,numerocasa,complemento,foto,email,senha)
- values(name,sexo,datanascimento,telefono,cpf,rg,cep,numerocasa,complemento,foto,email,senha)"; 
- 
- 
- $salva= $conn->prepare($sql);
- $salva=->binParan(':nome', $dadoscad['nome'], PDO::PARAM_STR)
- $salva=->binParan(':sexo', $dadoscad['sexo'], PDO::PARAM_STR)
- $salva=->binParan(':datanascimento', $dadoscad['dn'], PDO::PARAM_STR)
- $salva=->binParan(':telefone', $dadoscad['telefone'], PDO::PARAM_STR)
- $salva=->binParan(':cpf', $dadoscad['cpf'], PDO::PARAM_STR)
- $salva=->binParan(':rg', $dadoscad['numero'], PDO::PARAM_STR)
- $salva=->binParan(':cep', $dadoscad['cep'], PDO::PARAM_STR)
- $salva=->binParan(':numero da casa', $dadoscad['numero'], PDO::PARAM_STR)
- $salva=->binParan(':complento', $dadoscad['complemento'], PDO::PARAM_STR)
- $salva=->binParan(':foto', $dadoscad['foto'], PDO::PARAM_STR)
- $salva=->binParan(':email', $dadoscad['email'], PDO::PARAM_STR)
- $salva=->binParan(':senha', $dadoscad['senha'], PDO::PARAM_STR)
+if (!$vazio) {
 
- if ($salva->rowCount()) {
-     echo "Usuário cadrastrado com sucesso!";
-     unset($dadoscad);
-    }else {
-        echo "Usuário na cadastrado!";
+
+    $senha = password_hash($dadoscad['senha'], PASSWORD_DEFAULT);
+
+    $sql = "insert into aluno(nome,sexo,datanascimento,
+    telefone,cpf,rg,cep,numerocasa,complemento,foto,email,senha)
+    values(:nome,:sexo,:datanascimento,:telefone,:cpf,:rg,:cep,
+    :numerocasa,:complemento,:foto,:email,:senha)";
+
+    $salvar= $conn->prepare($sql);
+    $salvar->bindParam(':nome', $dadoscad['nome'], PDO::PARAM_STR);
+    $salvar->bindParam(':sexo', $dadoscad['sexo'], PDO::PARAM_STR);
+    $salvar->bindParam(':datanascimento', $dadoscad['dn'], PDO::PARAM_STR);
+    $salvar->bindParam(':telefone', $dadoscad['telefone'], PDO::PARAM_STR);
+    $salvar->bindParam(':cpf', $dadoscad['cpf'], PDO::PARAM_STR);
+    $salvar->bindParam(':rg', $dadoscad['rg'], PDO::PARAM_STR);
+    $salvar->bindParam(':cep', $dadoscad['cep'], PDO::PARAM_STR);
+    $salvar->bindParam(':numerocasa', $dadoscad['numero'], PDO::PARAM_INT);
+    $salvar->bindParam(':complemento', $dadoscad['complemento'], PDO::PARAM_STR);
+    $salvar->bindParam(':foto', $dadoscad['foto'], PDO::PARAM_STR);
+    $salvar->bindParam(':email', $dadoscad['email'], PDO::PARAM_STR);
+    $salvar->bindParam(':senha', $senha, PDO::PARAM_STR);
+    $salvar->execute();
+
+    if ($salvar->rowCount()) {
+        
+        echo "<script>
+        alert('Usuário cadastrado com sucesso!!');
+        parent.location = 'frmaluno.php';
+        </script>";
+
+        unset($dadoscad);
+    } else {
+        echo "<script>
+        alert('Usuário não cadastrado!');
+        parent.location = 'frmaluno.php';
+        </script>";
+        
     }
 
-    }
+}
+
+}
+
+}
 catch(PDOException $erro){
     echo $erro;
+
 }
-            ?>
+
+?>
+
+
