@@ -1,9 +1,8 @@
 <?php
     require_once 'head.php';
-    require_once 'menu.php';
 ?>
 
-<form method="POST" action="controlealuno.php">
+<form method="POST" action="controlealuno.php" 2="multipart/form-data">
     <div class="container">
         <div class="row">
                 <div class="col-md-12 text-center">
@@ -35,7 +34,7 @@
             </div>
 
             <div class="col-md-2">        
-              <div class="form-group">            
+              <div class="form-group">               
                   <label for="dn">Data de Nascimento</label>
                   <input type="date" class="form-control" name="dn">
               </div>
@@ -135,12 +134,13 @@
             <div class="col-md-5  ">
               <div class="form-group">
                  <label for="foto">Foto</label><p>
-                 <input type="text" class="form-control" name="foto">
+                 <input type="file" class="form-control" name="foto">
                 </div>
             </div>
 
             <div class="col-md-2">
                 <div class="form-group">
+                   
                     <input type="submit" class="btn btn-primary" value="Enviar" name="btncad">
                 </div>  
             </div>
@@ -150,3 +150,6 @@
 </form>
 
 
+<?php
+    require_once 'rodape.php';
+?>
