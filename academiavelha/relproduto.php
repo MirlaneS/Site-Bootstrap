@@ -6,29 +6,32 @@
     $pagatual = filter_input(INPUT_GET, "page", FILTER_SANITIZE_NUMBER_INT);
 	$pag = (!empty($pagatual)) ? $pagatual : 1;
 
-    $limitereg = 3;
+    $limitereg = 6;
 
     $inicio = ($limitereg * $pag) - $limitereg;
 
-    $busca= "SELECT matricula, cpf, nome, telefone, email 
-    FROM aluno WHERE status = 'A' LIMIT $inicio , $limitereg";
+    $busca= "SELECT p.codigoproduto, p.nome, p.cor, p.valor, p.tamanho, p.quantidade,
+    p.foto, c.nomecategoria
+    FROM produto p,categoria c WHERE quatidade > 0 and
+    c.idcategoria = p.idcategoria
+    LIMIT $inicio , $limitereg";
 
     $resultado = $conn->prepare($busca);
     $resultado->execute();
 
     if (($resultado) AND ($resultado->rowCount() != 0)){
        
-        echo "<h1>Relatório de Alunos</h1><br>";
+        echo "<h1>Produtos em estoque</h1><br>";
 ?>
         <table class="table">
         <thead>
          <tr>
-            <th scope="col">Matricula</th>
-            <th scope="col">Cpf</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Telefone</th>
-            <th scope="col">Email</th>
-            <th scope="col">Função</th>
+            <th scope="col">codigoproduto</th>
+            <th scope="col">nome</th>
+            <th scope="col">cor</th>
+            <th scope="col">valor</th>
+            <th scope="col">tamanho</th>
+            <th scope="col">quantidade</th>
          </tr>
         </thead>
      <tbody>
@@ -40,17 +43,18 @@
         
 ?>        
             <tr>
-              <td scope="row"><?php echo $matricula ?></td>
-              <td><?php echo $cpf ?></td>
+              <td scope="row"><?php echo $ ?></td>
               <td><?php echo $nome ?></td>
-              <td><?php echo $telefone ?></td>
-              <td><?php echo $email ?></td>
+              <td><?php echo $cor< ?></td>
+              <td><?php echo $valor ?></td>
+              <td><?php echo $tamanho ?></td>
+              <td><?php echo $quantidade ?></td>
               <td>
-                 <?php echo "<a href='editar.php?matricula=$matricula'>" ; ?>
+                 <?php echo "<a href='editar.php?matricula=$codigoproduto'>" ; ?>
                 <input type="submit" class="btn btn-primary" name="editar" value="Editar">
               </td>
               <td>
-                 <?php echo "<a href='excluir.php?matricula=$matricula'>" ; ?>
+                 <?php echo "<a href='excluir.php?matricula=$codigoproduto'>" ; ?>
                  <input type="submit" class="btn btn-danger" name="excluir" value="Excluir">
               </td>
              </tr>           
@@ -68,7 +72,7 @@
 
      //Contar os registros no banco
 
-     $qtregistro = "SELECT COUNT(matricula) AS registros FROM aluno
+     $qtregistro = "SELECT COUNT(codigoproduto) AS registros FROM aluno
      WHERE status = 'A'";
      $resultado = $conn->prepare($qtregistro);
      $resultado->execute();

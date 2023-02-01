@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 .container-fluid{
-    background-image: url("imagens/fundo-login.jpg");
+ background-image: url("imagens/fundo-login.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
