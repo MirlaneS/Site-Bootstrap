@@ -9,7 +9,7 @@ require_once 'menu.php';
         <h1>Formulário do Instrutor</h1>
       </div>
     </div>
-  </div>
+  
 
 <form>
 
@@ -132,6 +132,8 @@ require_once 'menu.php';
 
    
 </form>
+
+</div>
 
 <?php
 require_once 'footer.php';

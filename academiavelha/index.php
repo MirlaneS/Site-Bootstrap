@@ -11,7 +11,7 @@ require_once 'menu.php';
             </div>
 
         </div>
-    </div>
+    
 
     <div class="container-fluid texto">
       <div class="row">
@@ -77,7 +77,7 @@ require_once 'menu.php';
 
     </div>
 
-   
+    </div>
 
     <?php
     require_once 'footer.php';

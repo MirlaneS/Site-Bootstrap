@@ -8,7 +8,7 @@
                 <div class="col-md-12 text-center">
                     <h3>Cadastro de Aluno</h3>
                 </div>
-        
+        </div>
 
         <div class="row">
             <div class="col-md-5">
@@ -149,7 +149,6 @@
   
 </form>
 
-</div>
 
 <?php
     require_once 'footer.php';
