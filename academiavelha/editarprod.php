@@ -160,7 +160,7 @@
 
 
 <?php
-    require_once 'rodape.php';
+    require_once 'footer.php';
 ?>
 
 

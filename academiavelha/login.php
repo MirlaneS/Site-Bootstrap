@@ -30,8 +30,14 @@ if (!empty($dadoslogin['btnlogin'])) {
             if(password_verify($dadoslogin['senha'], $resposta['senha'])){
                 
                 $_SESSION['nome'] = $resposta['nome'];
-                header("Location: administrativo.php");
 
+                if($_SESSION["carrinho"] ==true){
+                    $_SESSION["matricula"] = $resposta["matricula"];
+                    header("Location: frmcarrinho.php");
+                }else{
+                    header("Location: administrativo.php");
+                }
+                
             }
             else{
                 $_SESSION['msg'] = "Erro: Usuário ou senha inválida!";

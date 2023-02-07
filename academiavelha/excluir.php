@@ -8,7 +8,7 @@
 
   if (empty($id)) {
       $_SESSION['msg'] = "Erro: Aluno não encontrado!";
-      header("Location: relalunos.php");
+      header("Location: relaluno.php");
       exit();
   }
 
@@ -28,13 +28,13 @@
   if(($resultado) AND ($resultado->rowCount() != 0)){
     echo "<script>
     alert('Aluno excluido com sucesso!');
-    parent.location = 'relalunos.php';
+    parent.location = 'relaluno.php';
     </script>";
 
   }else{
     echo "<script>
     alert('Exclusão não realizada!');
-    parent.location = 'relalunos.php';
+    parent.location = 'relaluno.php';
     </script>";
   }
 

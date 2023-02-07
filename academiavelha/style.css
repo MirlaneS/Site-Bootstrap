@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
-.container-fluid{
- background-image: url("imagens/fundo-login.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+body{
+    background: #a2cac5;
 }
-
 .form-aluno{
     background-color: rgb(34, 82, 85);
 }
