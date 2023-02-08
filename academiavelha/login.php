@@ -30,9 +30,10 @@ if (!empty($dadoslogin['btnlogin'])) {
             if(password_verify($dadoslogin['senha'], $resposta['senha'])){
                 
                 $_SESSION['nome'] = $resposta['nome'];
-
+                $_SESSION["matricula"] = $resposta["matricula"];
+                
                 if($_SESSION["carrinho"] ==true){
-                    $_SESSION["matricula"] = $resposta["matricula"];
+                   
                     header("Location: frmcarrinho.php");
                 }else{
                     header("Location: administrativo.php");

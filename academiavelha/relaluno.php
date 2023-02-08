@@ -18,7 +18,7 @@
 
     if (($resultado) AND ($resultado->rowCount() != 0)){
        
-        echo "<h1>Relatório de Alunos</h1><br>";
+        echo "<h1>Relatório de Alunos</h1>";
 ?>
         <table class="table">
         <thead>

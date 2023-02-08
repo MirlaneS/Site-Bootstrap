@@ -102,12 +102,12 @@
       // Maximo de links      
       $maximo = 2;
 
-      echo "<a href='relprodutos.php?page=1'>Primeira</a> ";
+      echo "<a href='relproduto.php?page=1'>Primeira</a> ";
     // Chamar página anterior verificando a quantidade de páginas menos 1 e 
     // também verificando se já não é primeira página
     for ($anterior = $pag - $maximo; $anterior <= $pag - 1; $anterior++) {
         if ($anterior >= 1) {
-            echo "  <a href='relprodutos.php?page=$anterior'>$anterior</a> ";
+            echo "  <a href='relproduto.php?page=$anterior'>$anterior</a> ";
         }
     }
 
@@ -118,11 +118,11 @@
     // a ela
     for ($proxima = $pag + 1; $proxima <= $pag + $maximo; $proxima++) {
         if ($proxima <= $qnt_pagina) {
-            echo "<a href='relprodutos.php?page=$proxima'>$proxima</a> ";
+            echo "<a href='relproduto.php?page=$proxima'>$proxima</a> ";
         }
     }
 
-    echo "<a href='relprodutos.php?page=$qnt_pagina'>Última</a> ";
+    echo "<a href='relproduto.php?page=$qnt_pagina'>Última</a> ";
 
 
 ?>

@@ -12,9 +12,10 @@ $resultado->execute();
 if(($resultado)and($resultado->RowCount()!=0)){
 
     ?>
-    
+    <form action="finaliza.php" method="post">
     <table class="table">
     <thead>
+      
      <tr>
         <th scope="col">Imagem</th>
         <th scope="col">Nome</th>
@@ -56,7 +57,8 @@ if(($resultado)and($resultado->RowCount()!=0)){
 
 <?php $_SESSION["Totalcompra"]=$totalcompra; ?>
 
-<input type="submit" class="btn btn-danger" name="" value="">
+<input type="submit" class="btn btn-primary" name="Finalizar" value="Finalizar compra">
+</form>
 <?php
 }
 ?>
