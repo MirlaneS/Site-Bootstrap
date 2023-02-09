@@ -5,16 +5,17 @@
 
     require_once 'conexao.php';
 
-   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-    $codigoproduto = $dados["codigo"];
+    if(isset($_POST["excluir"])){
 
-    if(!empty($dados["excluir"])) {
-        $sqlexcluir = "DELETE from carrinho where codigoproduto  = $codigoproduto";
+    $codigoproduto = $_POST["excluir"];
+    
+        $sqlexcluir = "DELETE from carrinho 
+                       where codigoproduto  = $codigoproduto";
         $resulexcluir=$conn->prepare($sqlexcluir);
         $sqlexcluir->execute();
         $_SESSION["quant"] -=1;
-       } 
-        else{ 
+       
+    }else{ 
         if(!isset($_SESSION['NOME'])){
           $_SESSION["carrinho"]= true;
             ECHO "<script>

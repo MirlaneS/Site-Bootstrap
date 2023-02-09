@@ -57,7 +57,10 @@ if(($resultado)and($resultado->RowCount()!=0)){
 
 <?php $_SESSION["Totalcompra"]=$totalcompra; ?>
 
-<input type="submit" class="btn btn-primary" name="Finalizar" value="Finalizar compra">
+<td>                 
+<a href="finaliza.php"><button type="submit" class="btn btn-danger" name="excluir" value="<?php echo $codigoproduto; ?>">Excluir</button></a>
+</td>
+
 </form>
 <?php
 }
